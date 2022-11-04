@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.so
+.a
+.Python
+lib/
+lib64/
+.env
+env/
+ENV/
+.bak
+.con
