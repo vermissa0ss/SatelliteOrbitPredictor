@@ -16,3 +16,13 @@ class process_multiple_TLEs:
         #Create a dictionary made of only PRN code as key ([-7:-1]). and keep the next two lines as its values
         dic_satellites_twoLine = { loaded_lines[i][-7:-1] : [loaded_lines[i+1], loaded_lines[i+2]] for i in range(0, len(loaded_lines),3 ) }
         return dic_satellites_twoLine
+
+    def print_TLE_object(self, TLE_Object):
+        # Input: TLE file Object of Satrec type 
+        # Output: standard output of the content of the tle as orbital parameters
+        
+        from sys import stdout
+        from sgp4.conveniences import dump_satrec
+
+        orbital_elements_print = stdout.writelines(dump_satrec(TLE_Object))
+        return orbital_elements_print
