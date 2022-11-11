@@ -26,3 +26,15 @@ class process_multiple_TLEs:
 
         orbital_elements_print = stdout.writelines(dump_satrec(TLE_Object))
         return orbital_elements_print
+
+    
+    def create_sat_object_from_TLE(self, Line1, Line2):
+        # Input:
+        # Line1 = First line of TLE FILE as a string with seperated with white spaces
+        # Line2 = Second line of TLE FILE as a string with seperated with white spaces
+        # Output: satellite object of type stardec. ready to be used in SGP4 propagation
+        
+        from sgp4.api import Satrec
+
+        satellite = Satrec.twoline2rv(Line1, Line2)
+        return satellite
