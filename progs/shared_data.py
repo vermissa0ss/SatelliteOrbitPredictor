@@ -1,8 +1,9 @@
 from tle_processor import process_multiple_TLEs
 from datetime import datetime
 from time import gmtime, strftime
-
-
+from sgp4.api import jday
+from sgp4.api import Satrec
+from sgp4.api import SGP4_ERRORS
 class m_PShared:
 #
 # This class hold together some variables and functions used across the code.
@@ -28,3 +29,20 @@ class m_PShared:
         ss = strftime("%S", gmtime())
 
         return yyyy, mm, dd, hh, MM ,ss
+
+    def get_jday_from_date(yyyy, mm, dd, hh, MM ,ss):
+        # Input: Date and time in the specifed format
+        # Output: Julian day and fraction
+        jd, fr = jday(yyyy, mm, dd, hh, MM, ss)
+        return jd, fr
+
+    def make_starec_obj_from_tle(line1, line2):
+        # Input: TLE string line1 and line 2
+        # Output: Starec object
+        satellite = Satrec.twoline2rv(line1, line2)
+        return satellite
+    
+    def define_error_code(error_code):
+        return SGP4_ERRORS.get(error_code)
+            
+
