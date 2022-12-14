@@ -1,5 +1,23 @@
-					SatelliteOrbitPredictor
-This package’s goal is to propagate the orbit of current satellite’s for the next 12 hours. 
-This module contains all unclassified NAVSTAR satellites currently in orbit. 
-The output of this function is the plot of the orbit propagation as ground-tracks, 3D, or as an animated ground-track.
-These are the key inputs to the main plot function, plot_specific_orbit. The output will be an interactive plot saved to the current directory as an .html file. 
+						SatelliteOrbitPredictor
+
+This package’s goal is to propagate the orbit of current satellite’s for the next 12 hours. This module contains all unclassified NAVSTAR satellites currently in orbit. 
+
+
+This package can be imported by:
+from plot import plot_orbit
+
+
+Inputs: Satellite ID, graphType
+
+The satellite ID’s can be obtained by examining the ID’s of each satellite posted by NAVSTAR. The satellite ID will be in the from “KEY #” eg. “PRN 20”. Besides putting in a satellite name as a string, the function plot_orbit.get_all_graphs() can be called with no inputs to plot all the NAVSTAR satellites. 
+
+There are 3 different graphType inputs. First, is “GroundTracks”, which plots the ground tracks of the specific satellites orbit for the next 12 hours on a flat map of the earth. The next input option is “3d” in which the orbit is plotted on a 3D globe of the earth. The final plotting option is “Animation” in which the orbit trajectory is animated across its ground tracks. 
+
+Example: plot_orbit.plot_specific_orbit(“PRN 20”, Animation)
+plot_orbit.get_all_graphs()
+
+
+Output:
+Graphic of propagated orbit
+Graphic exported as .html file to current working directory
+
