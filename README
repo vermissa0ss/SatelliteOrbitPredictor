@@ -1,8 +1,5 @@
-
-			#####                                  #     ###   
-			#     # #####   ####  #    # #####     ##    #   #  
-			#       #    # #    # #    # #    #   # #   #     # 
-			#  #### #    # #    # #    # #    #     #   #     # 
-			#     # #####  #    # #    # #####      #   #     # 
-			#     # #   #  #    # #    # #          #    #   #  
-			#####  #    #  ####   ####  #        #####   ###   
+					SatelliteOrbitPredictor
+This package’s goal is to propagate the orbit of current satellite’s for the next 12 hours. 
+This module contains all unclassified NAVSTAR satellites currently in orbit. 
+The output of this function is the plot of the orbit propagation as ground-tracks, 3D, or as an animated ground-track.
+These are the key inputs to the main plot function, plot_specific_orbit. The output will be an interactive plot saved to the current directory as an .html file. 
